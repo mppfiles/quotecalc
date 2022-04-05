@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>Simple quote calculator</title>
+
+    <style>
+        [v-cloak] { display:none }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <v-app>
+        <v-main>
+            <v-container>
+                <v-card width="80%" :loading="loading">
+                    <v-card-title>Your quote details:</v-card-title>
+                    <v-simple-table>
+                        <template v-slot:default>
+                            <thead>
+                            <tr>
+                                <th class="text-left">
+                                    Item
+                                </th>
+                                <th class="text-left">
+                                    Value
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Term (months): </td>
+                                <td>{{ quote.term }}</td>
+                            </tr>
+                            <tr>
+                                <td>Loan amount: </td>
+                                <td>{{ quote.loanAmount }}</td>
+                            </tr>
+                            <tr>
+                                <td>Interest rate: </td>
+                                <td>{{ quote.interestRate }}</td>
+                            </tr>
+                            <tr>
+                                <td>Residual value: </td>
+                                <td>{{ quote.residualValue }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>FINAL QUOTE:</strong></td>
+                                <td><strong>{{ quote.realQuote }}</strong></td>
+                            </tr>
+                            </tbody>
+                        </template>
+                    </v-simple-table>
+                    <v-card-actions>
+                        <v-btn color="primary" @click="back">Get another quote</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-container>
+        </v-main>
+    </v-app>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="details.js"></script>
+</body>
+</html>
