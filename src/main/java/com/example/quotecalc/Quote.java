@@ -6,7 +6,7 @@ import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
 public class Quote {
-    private static final double QUOTE_LIMIT = 1000000;
+    private static final double LOAN_AMOUNT_LIMIT = 1000000;
 
     @Positive
     @Max(72)
@@ -86,6 +86,6 @@ public class Quote {
     }
 
     public boolean isQuoteAmountExceeded() {
-        return this.getRealQuote() >= QUOTE_LIMIT;
+        return this.getLoanAmount() >= LOAN_AMOUNT_LIMIT;
     }
 }
